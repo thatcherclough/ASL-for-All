@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftfulLoadingIndicators",
+        "repositoryURL": "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators.git",
+        "state": {
+          "branch": null,
+          "revision": "85858c0246dcd781228301f9928519f75ce89758",
+          "version": "0.0.4"
+        }
+      },
+      {
+        "package": "SwiftUI-Shimmer",
+        "repositoryURL": "https://github.com/markiv/SwiftUI-Shimmer",
+        "state": {
+          "branch": null,
+          "revision": "61411771350a5a4e96666a8a202ae4b2be327a2b",
+          "version": "1.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

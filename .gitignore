@@ -1,0 +1,7 @@
+.DS_Store
+/Pods
+*xcworkspace/xcuserdata/*
+/api/.vscode
+/api/public/*
+/api/aslgrammartranslator.jar
+.vscode
