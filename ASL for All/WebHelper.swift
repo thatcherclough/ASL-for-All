@@ -14,7 +14,7 @@ class WebHelper: NSObject {
     
     func getPageURL(letter: String) -> URL? {
         let ascii = letter.uppercased().asciiValues[0]
-        if ascii - 65 >= 0 && ascii - 65 < letterURLs.count {
+        if ascii >= 65 && ascii - 65 < letterURLs.count {
             return URL(string: "\(baseURL)\(letterURLs[Int(ascii) - 65])")
         } else {
             return nil

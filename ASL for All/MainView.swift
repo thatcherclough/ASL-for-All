@@ -183,7 +183,7 @@ struct MainView: View {
         .onAppear() {
             mainViewModel.destroyCache()
             if UserDefaults.standard.object(forKey: "followASLWordOrder") == nil {
-                mainViewModel.followASLWordOrder = false
+                mainViewModel.followASLWordOrder = true
             }
         }
         .alert(isPresented: $mainViewModel.showAlert) {
