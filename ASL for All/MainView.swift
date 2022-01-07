@@ -249,10 +249,6 @@ class MainViewModel: ObservableObject {
             }
             input = input.replacingOccurrences(of: "  ", with: " ")
             
-            if input.isEmpty {
-                self.handleError(errorMessage: "Enter a valid word or sentence")
-            }
-            
             // Standardize apostrophes
             input = input.replacingOccurrences(of: "\u{0027}", with: "\'")
             input = input.replacingOccurrences(of: "\u{2018}", with: "\'")
@@ -282,7 +278,12 @@ class MainViewModel: ObservableObject {
                 return
             }
             
-            if self.followASLWordOrder && words.count > 1 {
+            if input.isEmpty {
+                self.handleError(errorMessage: "Enter a valid word or sentence")
+            }
+            
+            // Convert to ASL grammar
+            if self.followASLWordOrder && input.contains(" ") {
                 DispatchQueue.main.async {
                     self.loadingText = "Converting to ASL grammar..."
                 }
@@ -445,19 +446,23 @@ class MainViewModel: ObservableObject {
         
         for index in 0..<letters.count {
             group.enter()
-            if let pageURL = webHelper.getPageURL(letter: letters[index]) {
-                webHelper.getVideoURL(pageURL: pageURL) { [self] url in
-                    if url != nil {
-                        letterVideoURLs[index] = url!
-                        group.leave()
-                    } else {
-                        self.handleHandleNextWordError(errorMessage: "Could not get video for \'" + letters[index] + "\'. Make sure you are connected to the internet and try again.")
-                        return
+            if Array(letters[index])[0].isLetter {
+                if let pageURL = webHelper.getPageURL(letter: letters[index]) {
+                    webHelper.getVideoURL(pageURL: pageURL) { [self] url in
+                        if url != nil {
+                            letterVideoURLs[index] = url!
+                            group.leave()
+                        } else {
+                            self.handleHandleNextWordError(errorMessage: "Could not get video for \'" + letters[index] + "\'. Make sure you are connected to the internet and try again.")
+                            return
+                        }
                     }
+                } else {
+                    handleHandleNextWordError(errorMessage: "Could not get video for \'" + letters[index] + "\'. Make sure you are connected to the internet and try again.")
+                    return
                 }
             } else {
-                handleHandleNextWordError(errorMessage: "Could not get video for \'" + letters[index] + "\'. Make sure you are connected to the internet and try again.")
-                return
+                group.leave()
             }
         }
         

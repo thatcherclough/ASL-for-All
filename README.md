@@ -36,6 +36,7 @@ ASL for All can be installed from the [App Store](https://apps.apple.com/us/app/
 - Better loading animation
 - VideoView PlayerItem ram handling
 - Starting screen text cuts off
+- Use GeometryReader everywhere
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
