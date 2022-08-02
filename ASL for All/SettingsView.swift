@@ -78,6 +78,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                .listStyle(InsetGroupedListStyle())
             }
         }
         .animation(defaultAnimation)

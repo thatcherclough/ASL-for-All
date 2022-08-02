@@ -1,6 +1,9 @@
 # ASL for All
 ASL for All is an English to American Sign Language Translator.
 
+## Disclaimer
+Due to copyright issues, ASL for All has been taken down from the App Store and is no longer avaliable.
+
 ## Demo
 Input|Choose meaning|Translation
 :-------------------------:|:-------------------------:|:-------------------------:
@@ -19,23 +22,24 @@ Further development information:
 While the Xcode project will compile, it will not run properly because an API base url is required when running ``pod install``. 
 
 ## Installation
-ASL for All can be installed from the [App Store](https://apps.apple.com/us/app/asl-for-all/id1603768412).
+See the disclaimer above.
 
 ## Credits
 - [Harsh Bhavsar](https://github.com/harshbhavsar) for the algorithm used to convert English grammar to ASL grammar. The original can be found [here](https://github.com/harshbits/english-asl-algorithm), and the modified one used in the api can be found [here](https://github.com/thatcherclough/ASLGrammarTranslator).
 - [SigningSavvy](https://www.signingsavvy.com/) for the ASL videos.
 
 ## Future Dev Plans
-- Add a micophone buton when not typing
-- Add report button / Update algorithm
 - Store translations on remote end (API)
 - Better concatenation
+- Add a micophone buton when not typing
+- Add report button / Update algorithm
 - Better video management (expecially with export)
+- Better export
 - Better video player
 - Keys for API
-- Better loading animation
 - VideoView PlayerItem ram handling
 - Starting screen text cuts off
+- Use GeometryReader everywhere
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
